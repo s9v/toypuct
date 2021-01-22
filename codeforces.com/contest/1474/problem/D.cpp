@@ -28,28 +28,34 @@ bool solve() {
   if (d[n-1] == a[n-1] && m[0] >= 0 && m[1] >= 0)
     return true;
     
-  for (int i = 0; i < n-2; i++) {
+  for (int i = 0; i+1 < n; i++) {
+    if (d[i] < 0)
+      break;
+
     if (d[i+1] - a[i] + a[i+1] < 0)
       continue;
 
-    if (i+2 < n && m[i+2] - 2*a[i] + 2*a[i+1] < 0)
+    if (i+2 < n && m[i+2] + 2*a[i] - 2*a[i+1] < 0)
       continue;
 
-    if (i+3 < n && m[i+3] + 2*a[i] - 2*a[i+1] < 0)
+    if (i+3 < n && m[i+3] - 2*a[i] + 2*a[i+1] < 0)
       continue;
 
-    if ((n-1)%2 == (i+2)%2
-        && d[n-1] - 2*a[i] + 2*a[i+1] == a[n-1])
-      return true;
-    else if ((n-1)%2 == (i+3)%2
-        && d[n-1] + 2*a[i] - 2*a[i+1] == a[n-1])
-      return true;
-    else
-      continue;
+    if (i+1 == n-1) {
+      if (d[n-1] - a[n-2] + a[n-1] == a[n-2])
+        return true;
+    }
+    else {
+      if ((n-1)%2 == (i+2)%2
+          && d[n-1] + 2*a[i] - 2*a[i+1] == a[n-1])
+        return true;
+      else if ((n-1)%2 == (i+3)%2
+          && d[n-1] - 2*a[i] + 2*a[i+1] == a[n-1])
+        return true;
+    }
   }
 
-  // i == n-2
-  return d[n-1] - a[n-2] + a[n-1] == a[n-2];
+  return false;
 }
 
 int main() {
