@@ -1,0 +1,73 @@
+10
+2
+< 99999 No
+> 99999 No
+2
+< 1 No
+> 1 No
+3
+< 200 Yes
+> 400 Yes
+= 300 No
+6
+< 52 Yes
+> 51 Yes
+= 51 Yes
+= 51 Yes
+> 51 Yes
+= 51 Yes
+2
+< 100 No
+> 100 No
+3
+< 2 Yes
+> 4 Yes
+= 3 No
+6
+< 2 Yes
+> 1 Yes
+= 1 Yes
+= 1 Yes
+> 1 Yes
+= 1 Yes
+2
+< 100 No
+> 100 No
+3
+< 2 Yes
+> 4 Yes
+= 3 No
+6
+< 2 Yes
+> 1 Yes
+= 1 Yes
+= 1 Yes
+> 1 Yes
+= 1 Yes
+
+
+1
+2
+> 2 Yes
+= 3 Yes
+
+1
+2
+> 2 Yes
+= 3 Yes
+
+3
+2
+< 100 No
+> 100 No
+3
+< 2 Yes
+> 4 Yes
+= 3 No
+6
+< 2 Yes
+> 1 Yes
+= 1 Yes
+= 1 Yes
+> 1 Yes
+= 1 Yes
