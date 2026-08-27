@@ -18,7 +18,7 @@ void solve() {
             // min_a = a + max((b + mid) / cb * ca - max(ca - (b + mid) % cb - 1, 0LL), 0LL);
             min_a = (
                 a + (b + mid) / cb * ca
-                - ((b+mid)%cb+1 <= mid && (b + mid) / cb > 0) * (ca - (b+mid)%cb-1)
+                - ((b+mid)%cb+1 <= mid && (b + mid) / cb > 0) * max(ca - (b+mid)%cb-1, 0LL)
             );
         } else {
             min_a = a + max(mid - max(cb - b % cb - 1, 0LL), 0LL) + b / cb * ca;
@@ -27,9 +27,11 @@ void solve() {
         // dbg(lo);
         // dbg(hi);
         // dbg(mid);
-
-        // dbg(a + (b + mid) / cb * ca - max(ca - (b + mid) % cb - 1, 0LL));
-        // dbg((a + mid) + b / cb * ca - max(cb - b % cb - 1, 0LL));
+        // dbg(
+        //     a + (b + mid) / cb * ca
+        //     - ((b+mid)%cb+1 <= mid && (b + mid) / cb > 0) * (ca - (b+mid)%cb-1)
+        // );
+        // dbg(a + max(mid - max(cb - b % cb - 1, 0LL), 0LL) + b / cb * ca);
         // dbg(min_a);
 
         if (min_a >= fa) {
@@ -40,7 +42,7 @@ void solve() {
         }
 
         // int new_lo = lo;
-        // int new_hi = lo;
+        // int new_hi = hi;
         // dbg(new_lo);
         // dbg(new_hi);
         // cerr << "\n";
