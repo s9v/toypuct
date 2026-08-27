@@ -14,15 +14,9 @@ void solve() {
         long long mid = (lo + hi) / 2;
 
         long long min_a = min(
-            a + mid + b / cb * ca,
-            a + (b + mid) / cb * ca
+            a + (b + mid) / cb * ca - max(ca - (b + mid) % cb - 1, 0LL),
+            (a + mid) + b / cb * ca - max(cb - b % cb - 1, 0LL)
         );
-        if ((b + mid) % cb + 1 < ca) {
-            min_a = min(
-                min_a,
-                a + (b + mid) / cb * ca + ((b + mid) % cb + 1 - ca)
-            );
-        }
 
         if (min_a >= fa) {
             // dbg(mid);
@@ -31,7 +25,6 @@ void solve() {
             // dbg(a + (b + mid) / cb * ca + ((b + mid) % cb + 1 - ca));
             // dbg(min_a);
             // cerr << "\n";
-
             ans = min(ans, mid);
             hi = mid - 1;
         } else {
