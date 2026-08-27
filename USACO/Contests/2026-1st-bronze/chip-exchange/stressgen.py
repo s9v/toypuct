@@ -7,8 +7,8 @@ def main():
     for _ in range(tests):
         a = random.randint(0, 100)
         b = random.randint(0, 100)
-        ca = random.randint(0, 100)
-        cb = random.randint(0, 100)
+        ca = random.randint(1, 100)
+        cb = random.randint(1, 100)
         fa = random.randint(0, 100)
         print(a, b, ca, cb, fa)
 

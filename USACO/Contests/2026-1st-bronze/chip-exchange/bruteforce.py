@@ -1,10 +1,10 @@
 def solve(case: int):
     a, b, ca, cb, fa = tuple(map(int, input().split()))
 
-    MAX = max(cb * (fa - a), fa - a)
+    MAX = max(cb * (fa - a), fa - a, 0)
     
-    print(f'== TEST {case} ==')
     for x in range(MAX + 1):
+        # print(f'//{x}')
         if (
             min(
                 a + xa + (b + x - xa) // cb * ca
@@ -15,6 +15,8 @@ def solve(case: int):
             break
         # else:
         #     print(-x)
+    else:
+        print('?')
 
 def main():
     for case in range(int(input())):

@@ -15,9 +15,13 @@ void solve() {
 
         long long min_a;
         if (ca < cb) {
-            min_a = a + max((b + mid) / cb * ca - max(ca - (b + mid) % cb - 1, 0LL), 0LL);
+            // min_a = a + max((b + mid) / cb * ca - max(ca - (b + mid) % cb - 1, 0LL), 0LL);
+            min_a = (
+                a + (b + mid) / cb * ca
+                - ((b+mid)%cb+1 <= mid && (b + mid) / cb > 0) * (ca - (b+mid)%cb-1)
+            );
         } else {
-            min_a = max((a + mid) - max(cb - b % cb - 1, 0LL), 0LL) + b / cb * ca;
+            min_a = a + max(mid - max(cb - b % cb - 1, 0LL), 0LL) + b / cb * ca;
         }
 
         // dbg(lo);
