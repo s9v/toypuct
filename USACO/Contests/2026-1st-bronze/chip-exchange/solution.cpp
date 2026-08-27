@@ -8,15 +8,17 @@ void solve() {
     cin >> a >> b >> ca >> cb >> fa;
 
     long long lo = 0;
-    long long hi = 1LL << 30;
-    long long ans = 1LL << 30;
+    long long hi = 1LL << 60;
+    long long ans = 1LL << 60;
     while (lo <= hi) {
         long long mid = (lo + hi) / 2;
 
-        long long min_a = min(
-            a + max((b + mid) / cb * ca - max(ca - (b + mid) % cb - 1, 0LL), 0LL),
-            max((a + mid) - max(cb - b % cb - 1, 0LL), 0LL) + b / cb * ca
-        );
+        long long min_a;
+        if (ca < cb) {
+            min_a = a + max((b + mid) / cb * ca - max(ca - (b + mid) % cb - 1, 0LL), 0LL);
+        } else {
+            min_a = max((a + mid) - max(cb - b % cb - 1, 0LL), 0LL) + b / cb * ca;
+        }
 
         // dbg(lo);
         // dbg(hi);
@@ -27,9 +29,6 @@ void solve() {
         // dbg(min_a);
 
         if (min_a >= fa) {
-            // dbg(a + mid + b / cb * ca);
-            // dbg(a + (b + mid) / cb * ca);
-            // dbg(a + (b + mid) / cb * ca + ((b + mid) % cb + 1 - ca));
             ans = min(ans, mid);
             hi = mid - 1;
         } else {
